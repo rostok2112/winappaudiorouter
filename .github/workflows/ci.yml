@@ -35,4 +35,4 @@ jobs:
         run: python -m build
 
       - name: Validate package metadata
-        run: python -m twine check dist/*
+        run: python -m twine check dist\*.whl dist\*.tar.gz

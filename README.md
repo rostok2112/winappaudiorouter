@@ -52,6 +52,12 @@ war.clear_app_output_device(process_name="chrome.exe")
 python -m pytest -q
 ```
 
+## CI and PyPI publish
+
+- CI tests/build run on push and pull requests.
+- PyPI publish workflow runs on tag pushes like `v1.0.1`.
+- GitHub repo secret required: `PYPI_API_TOKEN`.
+
 ## Contribution guidelines
 
 Please read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request.
