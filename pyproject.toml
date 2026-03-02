@@ -38,6 +38,11 @@ dev = [
   "twine>=6.1",
 ]
 
+[project.urls]
+Homepage = "https://github.com/rostok2112/winappaudiorouter"
+Repository = "https://github.com/rostok2112/winappaudiorouter"
+Issues = "https://github.com/rostok2112/winappaudiorouter/issues"
+
 [project.scripts]
 winappaudiorouter = "winappaudiorouter.cli:main"
 
