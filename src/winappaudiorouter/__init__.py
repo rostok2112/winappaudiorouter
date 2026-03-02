@@ -19,4 +19,4 @@ __all__ = [
     "get_app_output_device",
 ]
 
-__version__ = "1.0.1"
+__version__ = "1.0.2"
