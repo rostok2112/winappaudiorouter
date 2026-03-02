@@ -15,4 +15,4 @@ def test_public_exports() -> None:
 
 
 def test_version() -> None:
-    assert war.__version__ == "1.0.0"
+    assert war.__version__ == "1.0.1"
