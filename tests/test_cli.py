@@ -6,7 +6,7 @@ from winappaudiorouter import cli
 
 
 def test_cli_get_system_default(monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture[str]) -> None:
-    monkeypatch.setattr(cli, "get_app_output_device", lambda _pid: None)
+    monkeypatch.setattr(cli, "get_app_output_device", lambda process_id=None, process_name=None: None)
     exit_code = cli.main(["get", "--pid", "1234"])
     output = capsys.readouterr().out
     assert exit_code == 0

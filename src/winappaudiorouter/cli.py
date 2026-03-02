@@ -25,8 +25,9 @@ def build_parser() -> argparse.ArgumentParser:
     clear.add_argument("--pid", type=int, help="Process ID.")
     clear.add_argument("--process-name", help="Process name, e.g. chrome.exe.")
 
-    get_cmd = sub.add_parser("get", help="Get persisted route for one PID.")
-    get_cmd.add_argument("--pid", type=int, required=True, help="Process ID.")
+    get_cmd = sub.add_parser("get", help="Get persisted route for app.")
+    get_cmd.add_argument("--pid", type=int, help="Process ID.")
+    get_cmd.add_argument("--process-name", help="Process name, e.g. chrome.exe.")
     return parser
 
 
@@ -76,7 +77,9 @@ def main(argv: list[str] | None = None) -> int:
         return 0
 
     if args.cmd == "get":
-        routed = get_app_output_device(args.pid)
+        if args.pid is None and not args.process_name:
+            parser.error("route requires --pid or --process-name")
+        routed = get_app_output_device(process_id=args.pid, process_name=args.process_name)
         if routed:
             print(routed)
         else:

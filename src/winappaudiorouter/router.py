@@ -55,13 +55,31 @@ def clear_app_output_device(
         return pids
 
 
-def get_app_output_device(process_id: int) -> str | None:
+def get_app_output_device(
+    *,
+    process_id: int | None = None,
+    process_name: str | None = None,
+) -> dict[int, str]:
     """Return current persisted route for the PID as a plain MMDevice id."""
     with com_initialized():
+        sessions = _enumerate_sessions_noinit()
+
+        # Resolve the PID(s) based on process_name or process_id
+        pids = _resolve_process_ids_from_sessions(process_id, process_name, sessions)
+
+        if not pids:
+            return {}
+
+        results = {}
         with PolicyConfigFactory() as factory:
-            policy_device_id = factory.get_persisted_default_endpoint(
-                process_id=process_id,
-                flow=EDataFlow.eRender.value,
-                role=ERole.eMultimedia.value,
-            )
-            return unpack_device_id(policy_device_id)
+            for pid in pids:
+                policy_device_id = factory.get_persisted_default_endpoint(
+                    process_id=pid,
+                    flow=EDataFlow.eRender.value,
+                    role=ERole.eMultimedia.value,
+                )
+                unpacked_device = unpack_device_id(policy_device_id)
+                if unpacked_device:
+                    results[pid] = unpacked_device
+
+        return results

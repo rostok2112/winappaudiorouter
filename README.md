@@ -7,6 +7,7 @@
 
 - Enumerate active output devices.
 - Enumerate active app audio sessions.
+- Enumerate app output devices by PID or process name.
 - Route one app PID (or all active sessions by process name) to a target output.
 - Clear persisted app routing (return to system default).
 - CLI + Python API.
@@ -32,6 +33,7 @@ winappaudiorouter route --process-name chrome.exe --device "Headphones"
 winappaudiorouter route --pid 1234 --device "{0.0.0.00000000}.{GUID}"
 winappaudiorouter clear --process-name chrome.exe
 winappaudiorouter get --pid 1234
+winappaudiorouter get --process-name chrome.exe  # Get the current device for all chrome.exe processes
 ```
 
 ## Python Usage
@@ -44,6 +46,7 @@ sessions = war.list_app_sessions()
 
 war.set_app_output_device(process_name="chrome.exe", device="Headphones")
 war.clear_app_output_device(process_name="chrome.exe")
+war.get_app_output_device(process_name="chrome.exe") # will return default audio device <system default>
 ```
 
 ## Running tests
