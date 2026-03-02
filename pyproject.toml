@@ -1,53 +1,6 @@
 [build-system]
-requires = ["hatchling>=1.27.0"]
-build-backend = "hatchling.build"
-
-[project]
-name = "winappaudiorouter"
-version = "1.0.0"
-description = "Route Windows app audio output devices using the same policy API path as EarTrumpet."
-readme = "README.md"
-requires-python = ">=3.10"
-license = { file = "LICENSE" }
-authors = [
-  { name = "winappaudiorouter contributors" },
-]
-keywords = ["windows", "audio", "routing", "pycaw", "eartrumpet"]
-classifiers = [
-  "Development Status :: 3 - Alpha",
-  "Intended Audience :: Developers",
-  "License :: OSI Approved :: MIT License",
-  "Operating System :: Microsoft :: Windows",
-  "Programming Language :: Python :: 3",
-  "Programming Language :: Python :: 3 :: Only",
-  "Programming Language :: Python :: 3.10",
-  "Programming Language :: Python :: 3.11",
-  "Programming Language :: Python :: 3.12",
-  "Topic :: Multimedia :: Sound/Audio",
-]
-dependencies = [
-  "comtypes>=1.4.6",
-  "psutil>=5.9",
-  "pycaw>=20240210",
-]
-
-[project.optional-dependencies]
-dev = [
-  "build>=1.2.2",
-  "pytest>=8.3",
-  "twine>=6.1",
-]
-
-[project.urls]
-Homepage = "https://github.com/rostok2112/winappaudiorouter"
-Repository = "https://github.com/rostok2112/winappaudiorouter"
-Issues = "https://github.com/rostok2112/winappaudiorouter/issues"
-
-[project.scripts]
-winappaudiorouter = "winappaudiorouter.cli:main"
-
-[tool.hatch.build.targets.wheel]
-packages = ["src/winappaudiorouter"]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
