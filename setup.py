@@ -19,7 +19,7 @@ def read_version() -> str:
 setup(
     name="winappaudiorouter",
     version=read_version(),
-    description="Route Windows app audio output devices using the same policy API path as EarTrumpet.",
+    description="Route Windows app audio output and input devices using the same policy API path as EarTrumpet.",
     long_description=README.read_text(encoding="utf-8"),
     long_description_content_type="text/markdown",
     author="winappaudiorouter contributors",
@@ -51,7 +51,7 @@ setup(
             "winappaudiorouter=winappaudiorouter.cli:main",
         ],
     },
-    keywords=["windows", "audio", "routing", "pycaw", "eartrumpet"],
+    keywords=["windows", "audio", "routing", "input", "output", "pycaw", "eartrumpet"],
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Intended Audience :: Developers",
