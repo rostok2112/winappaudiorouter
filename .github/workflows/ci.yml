@@ -12,9 +12,6 @@ permissions:
 jobs:
   test:
     runs-on: windows-latest
-    permissions:
-      contents: read
-      id-token: write
     strategy:
       fail-fast: false
       matrix:
@@ -47,8 +44,9 @@ jobs:
         uses: codecov/codecov-action@v5
         with:
           files: ./coverage.xml
-          use_oidc: true
           fail_ci_if_error: true
+          token: ${{ secrets.CODECOV_TOKEN }}
+          verbose: true
 
       - name: Build package
         run: python -m build
