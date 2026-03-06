@@ -1,6 +1,6 @@
 # winappaudiorouter
 
-[![CI](https://github.com/rostok2112/winappaudiorouter/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/rostok2112/winappaudiorouter/actions/workflows/ci.yml)
+[![CI](https://github.com/rostok2112/winappaudiorouter/actions/workflows/ci.yml/badge.svg?branch=main&event=push)](https://github.com/rostok2112/winappaudiorouter/actions/workflows/ci.yml)
 [![Coverage](https://codecov.io/gh/rostok2112/winappaudiorouter/graph/badge.svg?branch=main)](https://app.codecov.io/gh/rostok2112/winappaudiorouter)
 [![PyPI Version](https://img.shields.io/pypi/v/winappaudiorouter.svg)](https://pypi.org/project/winappaudiorouter/)
 [![Python Versions](https://img.shields.io/pypi/pyversions/winappaudiorouter.svg)](https://pypi.org/project/winappaudiorouter/)
