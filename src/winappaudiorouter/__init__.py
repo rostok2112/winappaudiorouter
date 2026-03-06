@@ -43,4 +43,4 @@ __all__ = [
     "get_app_input_device",
 ]
 
-__version__ = "1.1.0"
+__version__ = "1.1.1"
