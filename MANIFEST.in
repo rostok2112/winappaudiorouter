@@ -1,2 +1,5 @@
 include README.md
 include LICENSE
+include .readthedocs.yaml
+recursive-include docs *.py *.rst *.txt
+prune docs/_build

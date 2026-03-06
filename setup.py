@@ -26,6 +26,7 @@ setup(
     url="https://github.com/rostok2112/winappaudiorouter",
     project_urls={
         "Homepage": "https://github.com/rostok2112/winappaudiorouter",
+        "Documentation": "https://winappaudiorouter.readthedocs.io/en/latest/",
         "Repository": "https://github.com/rostok2112/winappaudiorouter",
         "Issues": "https://github.com/rostok2112/winappaudiorouter/issues",
     },
