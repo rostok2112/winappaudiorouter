@@ -3,7 +3,7 @@
 [![CI](https://github.com/rostok2112/winappaudiorouter/actions/workflows/ci.yml/badge.svg?branch=main&event=push)](https://github.com/rostok2112/winappaudiorouter/actions/workflows/ci.yml)
 [![Coverage](https://codecov.io/gh/rostok2112/winappaudiorouter/graph/badge.svg?branch=main)](https://app.codecov.io/gh/rostok2112/winappaudiorouter)
 [![Docs](https://readthedocs.org/projects/winappaudiorouter/badge/?version=latest)](https://winappaudiorouter.readthedocs.io/en/latest/)
-[![PyPI Version](https://img.shields.io/pypi/v/winappaudiorouter.svg)](https://pypi.org/project/winappaudiorouter/)
+[![PyPI Version](https://img.shields.io/pypi/v/winappaudiorouter?label=pypi&cacheSeconds=300)](https://pypi.org/project/winappaudiorouter/)
 [![Python Versions](https://img.shields.io/pypi/pyversions/winappaudiorouter.svg)](https://pypi.org/project/winappaudiorouter/)
 [![License](https://img.shields.io/pypi/l/winappaudiorouter.svg)](https://github.com/rostok2112/winappaudiorouter/blob/main/LICENSE)
 [![Platform](https://img.shields.io/badge/platform-Windows-0078D6)](https://learn.microsoft.com/windows/)
