@@ -5,6 +5,7 @@ import ctypes
 from comtypes import GUID
 
 DEVINTERFACE_AUDIO_RENDER = "#{e6327cad-dcec-4949-ae8a-991e976a79d2}"
+DEVINTERFACE_AUDIO_CAPTURE = "#{2eef81be-33fa-4800-9670-1cd474972c3f}"
 MMDEVAPI_TOKEN = r"\\?\SWD#MMDEVAPI#"
 POLICY_CONFIG_CLASS_ID = "Windows.Media.Internal.AudioPolicyConfig"
 

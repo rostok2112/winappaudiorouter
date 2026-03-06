@@ -106,7 +106,7 @@ def resolve_policy_config_iid() -> GUID:
     build = sys.getwindowsversion().build
     if build < BUILD_WINDOWS_10_1803:
         raise AudioRoutingError(
-            "Per-app output routing requires Windows 10 1803+ (build 17134 or newer)."
+            "Per-app audio routing requires Windows 10 1803+ (build 17134 or newer)."
         )
     return IID_POLICY_CONFIG_21H2 if build >= BUILD_21H2 else IID_POLICY_CONFIG_DOWNLEVEL
 

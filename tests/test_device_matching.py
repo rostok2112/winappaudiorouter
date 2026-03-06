@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import pytest
 
-from winappaudiorouter.devices import match_output_device
+from winappaudiorouter.devices import match_input_device, match_output_device
 from winappaudiorouter.errors import AudioRoutingError
 from winappaudiorouter.models import AudioDeviceInfo
 
@@ -33,3 +33,8 @@ def test_match_by_partial_name() -> None:
 def test_match_missing_raises() -> None:
     with pytest.raises(AudioRoutingError):
         match_output_device("not-found", _devices())
+
+
+def test_match_input_device_uses_same_matching_rules() -> None:
+    found = match_input_device("hdmi output", _devices())
+    assert found.id == "id-hdmi"

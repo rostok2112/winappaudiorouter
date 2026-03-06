@@ -5,15 +5,23 @@ import psutil
 from pycaw.api.audiopolicy import IAudioSessionControl2, IAudioSessionManager2
 from pycaw.constants import DEVICE_STATE, EDataFlow
 from pycaw.pycaw import AudioUtilities
+from typing import Literal
 
 from .com import com_initialized
 from .errors import AudioRoutingError
 from .models import AudioSessionInfo
 
 
-def _enumerate_sessions_noinit() -> list[AudioSessionInfo]:
+AudioFlow = Literal["output", "input"]
+
+
+def _data_flow_value(flow: AudioFlow) -> int:
+    return EDataFlow.eCapture.value if flow == "input" else EDataFlow.eRender.value
+
+
+def _enumerate_sessions_noinit(flow: AudioFlow) -> list[AudioSessionInfo]:
     devices = AudioUtilities.GetAllDevices(
-        data_flow=EDataFlow.eRender.value,
+        data_flow=_data_flow_value(flow),
         device_state=DEVICE_STATE.ACTIVE.value,
     )
     sessions: list[AudioSessionInfo] = []
@@ -66,10 +74,24 @@ def _enumerate_sessions_noinit() -> list[AudioSessionInfo]:
     return sessions
 
 
+def _enumerate_output_sessions_noinit() -> list[AudioSessionInfo]:
+    return _enumerate_sessions_noinit("output")
+
+
+def _enumerate_input_sessions_noinit() -> list[AudioSessionInfo]:
+    return _enumerate_sessions_noinit("input")
+
+
 def list_app_sessions() -> list[AudioSessionInfo]:
     """List current render audio sessions across active output devices."""
     with com_initialized():
-        return _enumerate_sessions_noinit()
+        return _enumerate_output_sessions_noinit()
+
+
+def list_input_sessions() -> list[AudioSessionInfo]:
+    """List current capture audio sessions across active input devices."""
+    with com_initialized():
+        return _enumerate_input_sessions_noinit()
 
 
 def _resolve_process_ids_from_sessions(
@@ -101,5 +123,14 @@ def _resolve_process_ids_from_sessions(
 
 def resolve_process_ids(process_id: int | None, process_name: str | None) -> list[int]:
     with com_initialized():
-        sessions = _enumerate_sessions_noinit()
+        sessions = _enumerate_output_sessions_noinit()
+        return _resolve_process_ids_from_sessions(process_id, process_name, sessions)
+
+
+def resolve_input_process_ids(
+    process_id: int | None,
+    process_name: str | None,
+) -> list[int]:
+    with com_initialized():
+        sessions = _enumerate_input_sessions_noinit()
         return _resolve_process_ids_from_sessions(process_id, process_name, sessions)
