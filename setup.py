@@ -43,6 +43,7 @@ setup(
         "dev": [
             "build>=1.2.2",
             "pytest>=8.3",
+            "pytest-cov>=6.0",
             "twine>=6.1",
         ],
     },

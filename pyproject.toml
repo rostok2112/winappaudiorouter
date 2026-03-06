@@ -4,3 +4,10 @@ build-backend = "setuptools.build_meta"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+
+[tool.coverage.run]
+branch = true
+source = ["winappaudiorouter"]
+
+[tool.coverage.report]
+show_missing = true
